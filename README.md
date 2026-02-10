@@ -13,10 +13,8 @@ Experiment videos can be found in the `experiment_videos` directory.
 
 ```bash
 # Clone the repository
-git clone [https://github.com/mullerjaku/iwinac2026.git](https://github.com/mullerjaku/iwinac2026.git)
+git clone https://github.com/mullerjaku/iwinac2026.git
 cd iwinac2026
-
-# --- Create environment ---
 
 # Conda env
 conda create -n iwinac python=3.10.12 -y
