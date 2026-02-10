@@ -49,15 +49,15 @@ def get_data_stats(base_path, num_files=20):
 num_files_cur = 20
 # Define paths for the 3 different scenarios
 paths_1 = {
-    "cur": "/home/citic_gii/sim/results_data/cur_",
-    "nov": "/home/citic_gii/sim/results_data/nov_"
+    "cur": "/home/citic_gii/iwinac2026/results_data/cur_",
+    "nov": "/home/citic_gii/iwinac2026/results_data/nov_"
 }
 paths_2 = {
-    "cur": "/home/citic_gii/sim/results_data/cur_wm_"
+    "cur": "/home/citic_gii/iwinac2026/results_data/cur_wm_"
     # "nov" was commented out in original script 2
 }
 paths_3 = {
-    "cur": "/home/citic_gii/sim/results_data/cur_comb_"
+    "cur": "/home/citic_gii/iwinac2026/results_data/cur_comb_"
     # "nov" was commented out in original script 3
 }
 
@@ -149,7 +149,7 @@ for i, ax in enumerate(axes):
     ax.legend(loc='upper left', fontsize=10)
 
 plt.tight_layout()
-plt.savefig("/home/citic_gii/sim/plot_ijrc_next.png", dpi=300)
+plt.savefig("/home/citic_gii/iwinac2026/plot_ijrc_next.png", dpi=300)
 plt.show()
 
 
@@ -203,13 +203,13 @@ def get_data_stats(base_path, num_files=20):
 num_files_cur = 20
 
 # Define paths
-path_cur_1 = "/home/citic_gii/sim/results_data/cur_"
-path_nov_1 = "/home/citic_gii/sim/results_data/nov_"
+path_cur_1 = "/home/citic_gii/iwinac2026/results_data/cur_"
+path_nov_1 = "/home/citic_gii/iwinac2026/results_data/nov_"
 
-path_cur_2 = "/home/citic_gii/sim/results_data/cur_wm_"
-path_nov_2 = "/home/citic_gii/sim/results_data/nov_wm_" # path exists in logic, though maybe unused
+path_cur_2 = "/home/citic_gii/iwinac2026/results_data/cur_wm_"
+path_nov_2 = "/home/citic_gii/iwinac2026/results_data/nov_wm_" # path exists in logic, though maybe unused
 
-path_cur_3 = "/home/citic_gii/sim/results_data/cur_comb_"
+path_cur_3 = "/home/citic_gii/iwinac2026/results_data/cur_comb_"
 # path_nov_3 ignored
 
 # --- Plotting Setup ---
@@ -294,5 +294,5 @@ axes[-1].set_xlabel("Epochs", fontsize=12)
 
 plt.tight_layout()
 plt.subplots_adjust(hspace=0.1) # Reduces space between the plots slightly
-plt.savefig("/home/citic_gii/sim/plot_ijrc_down.png", dpi=300)
+plt.savefig("/home/citic_gii/iwinac2026/plot_ijrc_down.png", dpi=300)
 plt.show()

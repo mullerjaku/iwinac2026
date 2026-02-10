@@ -7,8 +7,8 @@ NUM_FILES = 20
 MAX_EPOCH = 250
 METHODS_ORDER = ['exploration', 'exploration_path', 'improvement']
 
-BASE_PATH_CUR = "/home/citic_gii/sim/results_data/cur_wm_"
-BASE_PATH_NOV = "/home/citic_gii/sim/results_data/cur_comb_"
+BASE_PATH_CUR = "/home/citic_gii/iwinac2026/results_data/cur_wm_"
+BASE_PATH_NOV = "/home/citic_gii/iwinac2026/results_data/cur_comb_"
 
 # Barvy a české popisky
 COLORS = {'exploration': '#1f77b4', 'exploration_path': '#ff7f0e', 'improvement': '#2ca02c'}

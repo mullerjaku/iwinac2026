@@ -6,7 +6,7 @@ import os
 # --- KONFIGURACE ---
 NUM_FILES = 20
 MAX_EPOCH = 250
-BASE_PATH_CUR = "/home/citic_gii/sim/results_data/cur_"
+BASE_PATH_CUR = "/home/citic_gii/iwinac2026/results_data/cur_"
 WINDOW_SIZE = 20
 ENV_CHANGE_EPOCH = 150
 
