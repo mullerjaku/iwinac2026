@@ -1,17 +1,13 @@
 <div align="center">
 
-# Project Motivations
+# IWINAC 2026
 
-Intrinsic adn Extrinsic motivation methods for goal exploration, skill improvement and extrinsic success in a simple robotic environment.
+Intrinsic motivation methods for goal exploration and skill improvement success in a simple robotic environment.
 
 </div>
 
-## Features
-* Goal management with JSON-backed storage
-* Curiosity (RND), effectance (image similarity / SSIM), entropy-based utility, adaptive prediction
-* Competence and interest computation (novelty, diversification, competence progress)
-* Simple 2D / image-based robot environment
-* Modular design – each motivation component in its own class
+## Videos
+Experiment videos can be found in folder experiment_videos.
 
 ## Quick Start
 
