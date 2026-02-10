@@ -2,41 +2,41 @@
 
 # IWINAC 2026
 
-Intrinsic motivation methods for goal exploration and skill improvement success in a simple robotic environment.
+**Intrinsic motivation methods for goal exploration and skill improvement in a simple robotic environment.**
 
 </div>
 
 ## Videos
-Experiment videos can be found in folder experiment_videos.
+Experiment videos can be found in the `experiment_videos` directory.
 
 ## Quick Start
 
 ```bash
-mkdir iwinac2026
+# Clone the repository
+git clone [https://github.com/mullerjaku/iwinac2026.git](https://github.com/mullerjaku/iwinac2026.git)
 cd iwinac2026
-git clone https://github.com/mullerjaku/iwinac2026.git
-# --- Create environment (choose ONE of the following) ---
+
+# --- Create environment ---
 
 # Conda env
 conda create -n iwinac python=3.10.12 -y
 conda activate iwinac
 
-# Install dependiencies
+# Install dependencies
 pip install --upgrade pip
-pip install -e .  # uses setup.py
+pip install -e .
 ```
 
-## Running the Main Script
+## Running the Experiments
 
-The primary entry point appears to be `motivations_run.py` (adjust if you use a different orchestrator):
-```bash
-python motivations_run.py
-```
+You can reproduce different experimental setups by running the following scripts:
 
-If you need to run a sub-goal tree experiment:
-```bash
-python sub_goal_tree.py
-```
+| Method | Description | Command |
+| :--- | :--- | :--- |
+| **Motivational** | Experiment using motivational engine for goal change position. | `python cur.py` |
+| **Novelty** | Experiment using novelty engine for goal change position. | `python nov.py` |
+| **World Model** | Experiment using motivational engine for world model change position. | `python wm.py` |
+| **Combined** | Experiment using motivational engine for goal position and world model change. | `python comb.py` |
 
 ---
 Maintained by Jakub Müller.
