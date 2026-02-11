@@ -1,6 +1,6 @@
 .vscode/
+classes/.__pycache__/
 node_modules/
-classes/__pycache__
 .DS_Store
 *.log
 *.db
