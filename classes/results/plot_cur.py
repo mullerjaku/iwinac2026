@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 num_files_cur = 20
-base_path_cur = "/home/citic_gii/iwinac2026/results_data/cur_"
-base_path_nov = "/home/citic_gii/iwinac2026/results_data/nov_"
+base_path_cur = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_"
+base_path_nov = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/nov_"
 steps_data_cur = {}
 steps_data_nov = {}
 
@@ -110,7 +110,7 @@ x_points = [0, 150, 150, 500]
 y_points = [4, 4, 200, 200]
 plt.plot(x_points, y_points, color='red', linestyle='-', alpha=0.4, label='Predefined Setup')
 plt.axvline(x=150, color='black', linestyle='--', linewidth=1.5, alpha=0.6)
-plt.text(150 + 2, 205, 'Goal position change', fontsize=12)
+plt.text(150 + 2, 205, 'Goal position change', fontsize=16)
 
 
 plt.plot(epochs_cur_avg, steps_cur_avg, color='blue', linestyle='-', alpha=0.6, label='Motivational Engine')
@@ -131,17 +131,17 @@ plt.fill_between(
     alpha=0.2
 )
 
-plt.xlabel("Epoch")
-plt.ylabel("Steps")
+plt.xlabel("Epoch", fontsize=16)
+plt.ylabel("Steps", fontsize=16)
 plt.grid(linestyle='-', alpha=0.2) 
 x_ticks = np.arange(0, 501, 25)
 y_ticks = np.arange(0, 201, 25)
-plt.xticks(x_ticks, fontsize=12)
-plt.yticks(y_ticks, fontsize=12)
+plt.xticks(x_ticks, fontsize=16)
+plt.yticks(y_ticks, fontsize=16)
 plt.xlim(0, 250)
 plt.ylim(0, 250) 
 
 plt.legend()
 plt.tight_layout()
-plt.savefig("/home/citic_gii/iwinac2026/plot_ijrc.png", dpi=300)
+plt.savefig("/Users/jakubmuller/Desktop/WORK/iwinac2026/plot_ijrc.png", dpi=300)
 plt.show()

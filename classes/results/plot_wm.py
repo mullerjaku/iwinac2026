@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 num_files_cur = 20
-base_path_cur = "/home/citic_gii/iwinac2026/results_data/cur_wm_"
-base_path_nov = "/home/citic_gii/iwinac2026/results_data/nov_wm_"
+base_path_cur = "/Users/jakubmuller/WORK/iwinac2026/results_data/cur_wm_"
+base_path_nov = "/Users/jakubmuller/WORK/iwinac2026/results_data/nov_wm_"
 steps_data_cur = {}
 steps_data_nov = {}
 
@@ -137,5 +137,5 @@ plt.ylim(0, 250)
 
 plt.legend()
 plt.tight_layout()
-plt.savefig("/home/citic_gii/iwinac2026/plot_ijrc_wm.png", dpi=300)
+plt.savefig("/Users/jakubmuller/WORK/iwinac2026/plot_ijrc_wm.png", dpi=300)
 plt.show()

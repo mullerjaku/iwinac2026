@@ -6,13 +6,13 @@ import os
 NUM_FILES = 20
 MAX_EPOCH = 250
 METHODS_ORDER = ['exploration', 'exploration_path', 'improvement']
-
-BASE_PATH_CUR = "/home/citic_gii/iwinac2026/results_data/cur_wm_"
-BASE_PATH_NOV = "/home/citic_gii/iwinac2026/results_data/cur_comb_"
+BASE_PATH_CLAS = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_" 
+BASE_PATH_CUR = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_wm_"
+BASE_PATH_NOV = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_comb_"
 
 # Barvy a české popisky
 COLORS = {'exploration': '#1f77b4', 'exploration_path': '#ff7f0e', 'improvement': '#2ca02c'}
-LABELS = {'exploration': 'Discovery of new goals', 'exploration_path': 'Discover new paths for existing goals', 'improvement': 'Selected UM function for existing goals'}
+LABELS = {'exploration': 'Exploring new goals', 'exploration_path': 'Exploring new paths for goal', 'improvement': 'Utility Model for goal'}
 
 def get_detailed_data(base_path, num_files, max_epoch):
     """
@@ -64,8 +64,9 @@ def plot_with_std(ax, detailed_data, title):
                         color=COLORS[method], 
                         alpha=0.15)
 
-    ax.set_title(title, fontsize=16, fontweight='bold', loc='left', pad=15)
+    #ax.set_title(title, fontsize=16, fontweight='bold', loc='left', pad=15)
     #ax.set_ylabel("Mean Activity Level", fontsize=11)
+    ax.tick_params(axis='both', which='major', labelsize=14)
     ax.set_xticks(np.arange(0, MAX_EPOCH + 1, 25))
     ax.set_ylim(-0.1, 1.1) # Normalizováno na 0-1 (procento běhů)
     ax.grid(True, linestyle='-', alpha=0.2)
@@ -74,30 +75,34 @@ def plot_with_std(ax, detailed_data, title):
     ax.axvline(x=150, color='black', linestyle='--', linewidth=1.5, alpha=0.7)
     
     # Popisek nad čárou (v horní části grafu)
-    ax1.text(150 + 2, 1.03, 'World Model change', 
-            fontsize=12, color='black')
-    ax2.text(150 + 2, 1.03, 'WM & Goal position change', 
-            fontsize=12, color='black')
+    ax1.text(150 + 2, 1.05, 'Goal position change', 
+            fontsize=14, color='black')
+    ax2.text(150 + 2, 1.05, 'World Model change', 
+            fontsize=14, color='black')
+    ax3.text(150 + 2, 1.05, 'WM & Goal position change', 
+            fontsize=14, color='black')
 
 # --- HLAVNÍ PROCES ---
 
 # Načtení dat (předpokládá existenci BASE_PATH_CUR/NOV z předchozího kódu)
+data_class_detailed = get_detailed_data(BASE_PATH_CLAS, NUM_FILES, MAX_EPOCH)
 data_cur_detailed = get_detailed_data(BASE_PATH_CUR, NUM_FILES, MAX_EPOCH)
 data_nov_detailed = get_detailed_data(BASE_PATH_NOV, NUM_FILES, MAX_EPOCH)
 
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 9), sharex=True)
+fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(12, 9), sharex=True)
 
-plot_with_std(ax1, data_cur_detailed, "Motivational Engine - WM change")
-plot_with_std(ax2, data_nov_detailed, "Motivational Engine - Combination WM & Goal change")
+plot_with_std(ax1, data_class_detailed, "Motivational Engine - Goal position change")
+plot_with_std(ax2, data_cur_detailed, "Motivational Engine - WM change")
+plot_with_std(ax3, data_nov_detailed, "Motivational Engine - Combination WM & Goal position change")
 
-ax2.set_xlabel("Epochs", fontsize=12)
+ax3.set_xlabel("Epochs", fontsize=14)
 fig.supylabel("Mean Activity Level (± SD, Gaussian smoothing, window = 20)", 
-               fontsize=12, x=0.07)
+               fontsize=15, x=0.04)
 
 # Společná legenda pro oba grafy
 handles, labels = ax1.get_legend_handles_labels()
-fig.legend(handles, labels, loc='upper center', bbox_to_anchor=(0.5, 1.0), ncol=3, frameon=False, fontsize=12)
+fig.legend(handles, labels, loc='upper center', bbox_to_anchor=(0.5, 0.95), ncol=3, frameon=False, fontsize=14)
 
 #plt.tight_layout()
 plt.savefig('plot_ijcr_activity_plot_wm.png', dpi=300)
-plt.show()
+#plt.show()

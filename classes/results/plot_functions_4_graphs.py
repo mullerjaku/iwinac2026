@@ -2,11 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 num_files_cur = 10
-base_path_cur = "/home/citic_gii/iwinac2026/results_data/cur_"
-base_path_0 = "/home/citic_gii/iwinac2026/results_data/cur_lin_"
-base_path_1 = "/home/citic_gii/iwinac2026/results_data/cur_svr_"
-base_path_2 = "/home/citic_gii/iwinac2026/results_data/cur_grad_"
-base_path_3 = "/home/citic_gii/iwinac2026/results_data/cur_mlp_"
+base_path_cur = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_"
+base_path_0 = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_lin_"
+base_path_1 = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_svr_"
+base_path_2 = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_grad_"
+base_path_3 = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_mlp_"
 steps_data_cur = {}
 steps_data_0 = {}
 steps_data_1 = {}
@@ -261,6 +261,9 @@ comparisons = [
 fig, axes = plt.subplots(2, 2, figsize=(15, 10), sharex=True, sharey=True)
 axes = axes.flatten() # Flatten 2x2 array into a list of 4 for easy looping
 
+x_ticks = np.arange(0, 501, 25)
+y_ticks = np.arange(0, 201, 25)
+
 for i, (label, ep, avg, p25, p75, color) in enumerate(comparisons):
     ax = axes[i]
     
@@ -273,19 +276,21 @@ for i, (label, ep, avg, p25, p75, color) in enumerate(comparisons):
     ax.fill_between(ep, p25, p75, color=color, alpha=0.2)
 
     # 3. Aesthetics and Labels
-    ax.set_title(f"Motivational Engine vs {label}", fontsize=14)
+    ax.set_xticks(x_ticks)
+    ax.set_yticks(y_ticks)
+    ax.tick_params(axis='both', which='major', labelsize=14)
     ax.axvline(x=150, color='black', linestyle='--', alpha=0.5)
     ax.grid(True, linestyle=':', alpha=0.6)
-    ax.legend(loc='upper right')
+    ax.legend(loc='upper left', fontsize = 14)
     
     # Only set Y label for left plots, X label for bottom plots (due to sharex/sharey)
-    if i % 2 == 0: ax.set_ylabel("Steps")
-    if i >= 2: ax.set_xlabel("Epochs")
+    if i % 2 == 0: ax.set_ylabel("Steps", fontsize = 14)
+    if i >= 2: ax.set_xlabel("Epochs", fontsize = 14)
 
     # Set limits
     ax.set_xlim(0, 250)
     ax.set_ylim(0, 250)
 
 plt.tight_layout()
-plt.savefig("/home/citic_gii/iwinac2026/plot_comparison_grid.png", dpi=300)
-plt.show()
+plt.savefig("/Users/jakubmuller/Desktop/WORK/iwinac2026/plot_comparison_grid.png", dpi=300)
+#plt.show()

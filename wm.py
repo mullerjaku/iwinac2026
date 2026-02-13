@@ -690,14 +690,14 @@ def main():
                 if reached_last == 0:
                     mask = ~np.all(already_trained == selected_goal, axis=1)
                     already_trained = already_trained[mask]
-                    if change == True:
-                        world_model_try = True
+                    # if change == True:
+                    #     world_model_try = True
                 choice = 'exploration_path'
                 train_model = um_entropy.train_ensemble(perception_for_goal_) #Fitting the models!
 
-                if (EPOCH_STEPS/2) < fail_check:
-                    print("jsme tady")
-                    world_model_try = True
+            if (EPOCH_STEPS/2) < fail_check:
+                input("Jsme tady!")
+                world_model_try = True
         
         observation, info = env.reset()
         p+=1

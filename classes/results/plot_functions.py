@@ -2,11 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 num_files_cur = 10
-base_path_cur = "/home/citic_gii/iwinac2026/results_data/cur_"
-base_path_0 = "/home/citic_gii/iwinac2026/results_data/cur_lin_"
-base_path_1 = "/home/citic_gii/iwinac2026/results_data/cur_svr_"
-base_path_2 = "/home/citic_gii/iwinac2026/results_data/cur_grad_"
-base_path_3 = "/home/citic_gii/iwinac2026/results_data/cur_mlp_"
+base_path_cur = "/Users/jakubmuller/WORK/iwinac2026/results_data/cur_"
+base_path_0 = "/Users/jakubmuller/WORK/iwinac2026/results_data/cur_lin_"
+base_path_1 = "/Users/jakubmuller/WORK/iwinac2026/results_data/cur_svr_"
+base_path_2 = "/Users/jakubmuller/WORK/iwinac2026/results_data/cur_grad_"
+base_path_3 = "/Users/jakubmuller/WORK/iwinac2026/results_data/cur_mlp_"
 steps_data_cur = {}
 steps_data_0 = {}
 steps_data_1 = {}
@@ -316,5 +316,5 @@ plt.ylim(0, 250)
 
 plt.legend()
 plt.tight_layout()
-plt.savefig("/home/citic_gii/iwinac2026/plot_ijrc_um_functions.png", dpi=300)
+plt.savefig("/Users/jakubmuller/WORK/iwinac2026/plot_ijrc_um_functions.png", dpi=300)
 plt.show()
