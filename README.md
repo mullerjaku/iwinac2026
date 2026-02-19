@@ -2,7 +2,7 @@
 
 # IWINAC 2026
 
-**Intrinsic motivation methods for goal exploration and skill improvement in a simple robotic environment.**
+**A Motivational Approach Towards Resilient Industrial Robots**
 
 </div>
 
