@@ -12,45 +12,32 @@ class Effactance:
         self.old_color = 'purple'
 
     def load_images(self, before_image, after_image):
-        # Načíst obrázky z cest
         self.before = cv2.imread(before_image)
         self.after = cv2.imread(after_image)
 
     def compute_difference(self):
-        # Zkontrolujte, zda byly obrázky načteny
         if self.before is None or self.after is None:
             raise ValueError("Obrázky nejsou načteny. Použijte load_images pro načtení obrázků.")
-
-        # Převod obrázků na odstíny šedi
         before_gray = cv2.cvtColor(self.before, cv2.COLOR_BGR2GRAY)
         after_gray = cv2.cvtColor(self.after, cv2.COLOR_BGR2GRAY)
 
-        # Výpočet SSIM mezi dvěma obrázky
         (score, diff) = structural_similarity(before_gray, after_gray, full=True)
         print(f"Image Similarity: {score * 100:.4f}%")
-
-        # Obrázek rozdílů obsahuje skutečné rozdíly mezi obrázky
         diff = (diff * 255).astype("uint8")
-
-        # Prahování rozdílového obrázku a nalezení kontur
         thresh = cv2.threshold(diff, 0, 255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
         contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-        # Vytvoření masky
         mask = np.zeros(self.before.shape, dtype='uint8')
 
         for c in contours:
             area = cv2.contourArea(c)
-            if area > 40:  # Ignoruj malé oblasti
+            if area > 40: 
                 cv2.drawContours(mask, [c], 0, (255,255,255), -1)
 
-        # Počet pixelů s rozdílem
-        difference_pixels = np.sum(mask > 0)  # Počet pixelů, které nejsou černé (0)
+        difference_pixels = np.sum(mask > 0)
 
-        # Celkový počet pixelů
         total_pixels = mask.shape[0] * mask.shape[1]
 
-        # Výpočet procenta rozdílových pixelů
         percentage_difference = (difference_pixels / total_pixels) * 100
         return percentage_difference
     
@@ -65,20 +52,15 @@ class Effactance:
     def check_overlap_with_robot(self, bb_robot, bounding_boxes):
         for i, box in enumerate(bounding_boxes):
             if self.do_boxes_overlap(bb_robot, box):
-                #print(f"Robot (bb_robot) se překrývá s Boxem {i}.")
                 return True
         return False
     
     def check_overlap_with_robot_and_multiple_boxes(self, bb_robot, bounding_boxes):
-        """
-        Vrací True, pokud se robot překrývá s alespoň dvěma různými boxy ze seznamu bounding_boxes.
-        """
         overlap_count = 0
         for i, box in enumerate(bounding_boxes):
             if self.do_boxes_overlap(bb_robot, box):
                 overlap_count += 1
             if overlap_count >= 2:
-                #print("Robot se překrývá s alespoň dvěma boxy.")
                 return True
         return False
     

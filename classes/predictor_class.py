@@ -15,16 +15,13 @@ class AdaptivePredictor:
         if len(self.frust_history) > self.window:
             self.frust_history.pop(0)
 
-        # Kontrola trendu frustrace v posledních 5 krocích
         if len(self.frust_history) == self.window:
             diffs = np.diff(self.frust_history)
             if np.all(diffs > 0):
-                # Frustrace roste - preferuj novelty
                 self.mode = "novelty"
                 self.w_nov = 0.7
                 self.w_um = 0.3
             elif np.all(diffs < 0):
-                # Frustrace klesá - preferuj um
                 self.mode = "um"
                 self.w_nov = 0.3
                 self.w_um = 0.7

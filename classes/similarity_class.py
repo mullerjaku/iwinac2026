@@ -5,7 +5,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 from json_class import GoalManager
 
-# ===== Nastavení náhodného semene pro opakovatelnost =====
 class SeedManager:
     @staticmethod
     def set_seed(seed=42):
@@ -95,14 +94,9 @@ class Similarity:
     def compute_similarity_matrix(self, embeddings):
         if not embeddings:
             return None
-        
-        # Stack all embeddings into a matrix [N, D]
+
         emb_tensor = torch.stack(embeddings)  # shape: [N, D]
-
-        # Normalize each embedding vector (L2 norm)
         emb_tensor = F.normalize(emb_tensor, p=2, dim=1)
-
-        # Compute cosine similarity as dot product of normalized vectors
         similarity_matrix = torch.matmul(emb_tensor, emb_tensor.T)  # shape: [N, N]
         return similarity_matrix
     
@@ -123,37 +117,3 @@ class Similarity:
         pairs.sort(key=lambda x: x[2], reverse=True)
         
         return pairs
-
-# all_similarity_matrices = []
-
-# print("Počítám similarity matrices pro 100 různých seedů...")
-
-# for i in range(100):
-#     # Nastavení jiného seeda pro každý cyklus
-#     set_seed(random.randint(0, 10000))
-#     tri = Similarity()
-    
-#     # Přepočítání embeddings s novým seedem
-#     emb = tri.get_traces()
-    
-#     # Výpočet similarity matrix
-#     sim_matrix = tri.compute_similarity_matrix(emb)
-    
-#     if sim_matrix is not None:
-#         all_similarity_matrices.append(sim_matrix)
-
-# # Výpočet průměrné similarity matrix
-# if all_similarity_matrices:
-#     # Stack všech matrices a vypočítání průměru
-#     stacked_matrices = torch.stack(all_similarity_matrices)
-#     average_similarity_matrix = torch.mean(stacked_matrices, dim=0)
-    
-#     print("\nPrůměrná similarity matrix ze 100 běhů:")
-#     print(average_similarity_matrix)
-
-#     sorted_pairs = tri.get_sorted_pairs(average_similarity_matrix)
-#     print(f"\nNejpodobnější dvojice goalů:")
-#     for i, (idx1, idx2, similarity) in enumerate(sorted_pairs[:10]):
-#         print(f"{i+1}. Goal {idx1} - Goal {idx2}: {similarity:.4f}")
-# else:
-#     print("Nepodařilo se vypočítat žádné similarity matrices")

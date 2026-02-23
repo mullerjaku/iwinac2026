@@ -185,10 +185,6 @@ def main():
     R_inv = R.T
     env = gym.make('FetchReach-v4', render_mode='human', max_episode_steps=200)
     observation, info = env.reset()
-    # X-osa: ~1.05 → 1.55 (stůl), můžeš dát trošku širší prostor: 1.05 → 1.55
-	# Y-osa: ~0.4 → 1.1 (stůl), rozumně 0.4 → 1.1
-	# Z-osa: 0 → 0.9 (od stolu po limit), rozumné: 0.4 → 0.9
-    #d_\text{max} = \sqrt{2.0} \approx 1.4142
     limits_min = np.array([1.05, 0.4, 0.4])
     limits_max = np.array([1.55, 1.1, 0.9])
     
