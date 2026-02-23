@@ -64,11 +64,11 @@ def remove_gap_and_shift(epochs, values, p25, p75):
 num_files_cur = 10
 
 models = [
-    ("Linear Regression", "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_lin_", "hotpink", "--"),
-    ("SVR",               "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_svr_", "grey", "--"),
-    ("Gradient Boosting", "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_grad_", "gold", "--"),
-    ("MLP",               "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_mlp_", "lime", "--"),
-    ("Motivational Engine", "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_", "blue", "-")
+    ("Linear Regression", "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_lin_", "hotpink", "--"),
+    ("SVR",               "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_svr_", "grey", "--"),
+    ("Gradient Boosting", "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_grad_", "gold", "--"),
+    ("MLP",               "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_mlp_", "lime", "--"),
+    ("Motivational Engine", "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_", "blue", "-")
 ]
 
 fig, ax = plt.subplots(figsize=(12, 8))

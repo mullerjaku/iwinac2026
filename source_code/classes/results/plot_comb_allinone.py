@@ -60,11 +60,11 @@ def remove_gap_and_shift(epochs, values, p25, p75):
 
 num_files_cur = 20
 paths_1 = {
-    "cur": "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_",
-    "nov": "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/nov_"
+    "cur": "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_",
+    "nov": "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/nov_"
 }
-paths_2 = {"cur": "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_wm_"}
-paths_3 = {"cur": "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_comb_"}
+paths_2 = {"cur": "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_wm_"}
+paths_3 = {"cur": "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_comb_"}
 
 fig, ax = plt.subplots(figsize=(12, 8))
 

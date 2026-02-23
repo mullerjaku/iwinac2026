@@ -8,9 +8,9 @@ LOAD_MAX_EPOCH = 250
 PLOT_MAX_EPOCH = 200 
 
 METHODS_ORDER = ['exploration', 'exploration_path', 'improvement']
-BASE_PATH_CLAS = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_" 
-BASE_PATH_CUR = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_wm_"
-BASE_PATH_NOV = "/Users/jakubmuller/Desktop/WORK/iwinac2026/results_data/cur_comb_"
+BASE_PATH_CLAS = "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_" 
+BASE_PATH_CUR = "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_wm_"
+BASE_PATH_NOV = "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_comb_"
 
 COLORS = {'exploration': '#1f77b4', 'exploration_path': '#ff7f0e', 'improvement': '#2ca02c'}
 LABELS = {'exploration': 'Exploring new goals', 'exploration_path': 'Exploring new paths for goal', 'improvement': 'Utility Model for goal'}
