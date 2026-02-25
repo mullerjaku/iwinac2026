@@ -64,10 +64,10 @@ def remove_gap_and_shift(epochs, values, p25, p75):
 num_files_cur = 10
 
 models = [
-    ("Linear Regression", "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_lin_", "hotpink", "--"),
     ("SVR",               "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_svr_", "grey", "--"),
     ("Gradient Boosting", "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_grad_", "gold", "--"),
     ("MLP",               "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_mlp_", "lime", "--"),
+    ("Linear Regression", "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_lin_", "hotpink", "--"),
     ("Motivational Engine", "/Users/jakubmuller/Desktop/WORK/iwinac2026/source_code/results_data/cur_", "blue", "-")
 ]
 
@@ -90,7 +90,7 @@ for label, path, color, style in models:
 
 ax.axvline(x=100, color='black', linestyle=':', linewidth=1.5, alpha=0.8)
 
-ax.text(100 + 30, 190, 'Goal position change', fontsize=16)
+ax.text(80, 210, 'Goal position change', fontsize=16)
 
 ax.grid(linestyle='-', alpha=0.3)
 ax.set_xlabel("Epochs", fontsize=16)

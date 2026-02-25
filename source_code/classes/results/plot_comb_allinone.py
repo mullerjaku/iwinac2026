@@ -84,7 +84,7 @@ y_points = [4, 4, 200, 200]
 ax.plot(x_points, y_points, color='gray', linestyle='--', alpha=0.5, linewidth=2, label='Classical Industrial Robot')
 
 ax.axvline(x=100, color='black', linestyle=':', linewidth=1.5, alpha=0.6)
-ax.text(100 + 27, 180, 'WM and / or Goal position change', fontsize=16)
+ax.text(70, 210, 'WM and / or Goal position change', fontsize=16)
 
 ax.plot(e_nov, s_nov, color='#2ca02c', linestyle='-.', linewidth=2, label='Goal Change (Nov. Baseline)')
 ax.fill_between(e_nov, p25_nov, p75_nov, color='#2ca02c', alpha=0.1)
